@@ -1,8 +1,8 @@
 # -*- coding: utf-8 -*-
 # [url=home.php?mod=space&uid=238618]@Time[/url] : 2021/8/27 9:50
 # [url=home.php?mod=space&uid=686208]@AuThor[/url] : Melon
-# [url=home.php?mod=space&uid=406162]@site[/url] : 
-# [url=home.php?mod=space&uid=786562]@note[/url] : 
+# [url=home.php?mod=space&uid=406162]@site[/url] :
+# [url=home.php?mod=space&uid=786562]@note[/url] :
 # [url=home.php?mod=space&uid=267492]@file[/url] : WeiBoHotLite.py
 # @Software: PyCharm
 import json
@@ -10,17 +10,17 @@ import logging
 import re
 import time
 # import traceback
- 
+
 import requests
- 
+
 logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(name)s - %(levelname)s - %(message)s')
 logger = logging.getLogger(__name__)
 headers = {
     'content-type': "application/json; charset=UTF-8",
     "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/89.0.4389.114 Safari/537.36"
 }
- 
- 
+
+
 def getHot(url):
     new_hot_list = []
     key_words = {"boom": "爆", "new": "新", "hot": "热", "None": "—", "fei": "沸", "jian_yellow": "荐"}
@@ -45,13 +45,13 @@ def getHot(url):
                              "open_url": open_url})
     logging.info(new_hot_list)
     return new_hot_list
- 
- 
+
+
 def send_msg(head, body):
     logging.info('----------start send_msg')
     url = 'http://push.ijingniu.cn/send'
     data = {
-        'key': '即时达的key',
+        'key': '6f5ff1f8f93b4a71baa5db96dfcf821d',
         'head': head,
         'body': body
     }
@@ -61,8 +61,8 @@ def send_msg(head, body):
         return json.loads(requests_post.text)['status']
     else:
         return False
- 
- 
+
+
 if __name__ == '__main__':
     while True:
         try:
