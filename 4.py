@@ -213,3 +213,35 @@ def main():
 if __name__ == '__main__':
     key = "？？？"  # 自己申请https://www.tianapi.com/，和上面的key通用，每天免费100次的调用，基本用不完
     main()
+   
+   -------------------------------------------------------
+   
+   
+   
+ def main(event,context):
+    """
+    主程序
+    :return:
+    """
+    try:
+        Tname=event["TriggerName"]     # 获取[color=rgba(0, 0, 0, 0.9)]触发器的名字
+        if Tname=="zaoS" or Tname=="zaoF":      
+            morning('zao')
+            if Tname=="zaoS":            # 家和学校隔很远，在家就调用家那的天气，在学校就用学校那地的天气，可自己删
+                weather(101210805)           # 城市代码
+            elif Tname=="zaoF":
+                weather(101210701)
+        elif Tname=="wan":
+            morning('wan')
+        elif Tname=="twqh":
+            earthy()
+            zhen()
+    except:
+        print("直接调用测试")
+        morning('wan')
+        weather(101210805)
+        earthy()
+        zhen()
+   
+   
+
